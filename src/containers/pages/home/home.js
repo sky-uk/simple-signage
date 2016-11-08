@@ -11,7 +11,6 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Home Test speed...</h1>
       <WebviewGrid rows={2} cols={2} webviews={webviews} />
     </div>
   );

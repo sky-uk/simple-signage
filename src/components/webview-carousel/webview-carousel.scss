@@ -1,0 +1,24 @@
+
+.webview-carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+
+  .webview-carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 500ms;
+
+    &.webview-carousel-item-selected {
+      opacity: 1;
+    }
+
+    .webview-wrap {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
