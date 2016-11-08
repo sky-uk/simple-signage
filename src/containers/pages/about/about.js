@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div>
       <h1>About</h1>
-      <Webview />
+      <Webview src="http://www.sky.com" styles={{height: '1500px'}}/>
     </div>
   );
 }
