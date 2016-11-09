@@ -1,14 +1,14 @@
 import React, { PropTypes, Component } from 'react';
-import { Webview } from '../../components';
 
 import './webview-grid.scss';
 
 export default class WebviewGrid extends Component {
     // TODO: add class name overwrites...
+    // TODO: Allow config to change widths and height percentages
     static propTypes = {
       rows: PropTypes.number.isRequired,
       cols: PropTypes.number.isRequired,
-      webviews: PropTypes.object.isRequired // Object of strings in the format {'0-0': url, '0-1': url2, '1-0': 'url3', ...}
+      webviews: PropTypes.array.isRequired
     };
 
     static defaultProps = {
@@ -17,24 +17,15 @@ export default class WebviewGrid extends Component {
       webviews: {}
     };
 
-    renderWebview = (url) => {
-      // console.log(url);
-      return (
-        <Webview src={url} />
-      );
-    }
-
     renderCols = (rowIndex) => {
       const cols = this.props.cols;
       const colElements = [];
       const widthPercentage = (100 / cols) + '%';
 
       for (let i = 0; i < cols; i++) {
-        const url = this.props.webviews[ rowIndex + '-' + i ];
-
         colElements.push(
           <div key={'webview-grid-cols-' + rowIndex + '-' + i} className="webview-grid-cols" style={{width: widthPercentage}}>
-            { this.renderWebview(url) }
+            { this.props.webviews[(rowIndex * cols) + i] }
           </div>
         );
       }

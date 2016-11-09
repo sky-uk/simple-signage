@@ -48,20 +48,19 @@ export default class JSONTransformer extends Component {
     }
 
     createWebviewGrid = (module, index) => {
-      return null;
-      // if (!module.modules) {return null;}
-      // if (!module.rows) {return null;}
-      // if (!module.cols) {return null;}
-      //
-      // const moduleElements = module.modules.map((item, index) => {
-      //   if (item.module && item.module.type) {
-      //       return this.createModule(item.module);
-      //   }
-      // });
-      //
-      // return (
-      //   <WebviewGrid key={'module-index-' + index} rows={module.rows} cols={module.cols} webviews={moduleElements} />
-      // );
+      if (!module.modules) {return null;}
+      if (!module.rows) {return null;}
+      if (!module.cols) {return null;}
+
+      const moduleElements = module.modules.map((item) => {
+        if (item.module && item.module.type) {
+            return this.createModule(item.module);
+        }
+      });
+
+      return (
+        <WebviewGrid key={'module-index-' + index} rows={module.rows} cols={module.cols} webviews={moduleElements} />
+      );
     }
 
     createModule = (module, index) => {
