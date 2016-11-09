@@ -4,8 +4,8 @@
 import { Home, About, Carousel, Parsed } from './containers';
 
 export default [
-  { path: '/', title: 'Home', component: Home },
+  { path: '/', title: 'Parsed', component: Parsed },
   { path: '/about', title: 'About', component: About },
   { path: '/carousel', title: 'Carousel', component: Carousel },
-  { path: '/parsed', title: 'Parsed', component: Parsed }
+  { path: '/parsed', title: 'Old Home', component: Home }
 ];

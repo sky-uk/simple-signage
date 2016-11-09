@@ -40,19 +40,32 @@
 	"name": "test-webview-grid",
 	"screen": [{
 		"module": {
-			"type": "webview-carousel",
-			"rotationTime": 5,
+			"type": "webview-grid",
+			"rows": 2,
+			"cols": 2,
 			"modules": [
 				{
 					"module": {
 						"type": "webview",
-						"src": "http://www.sky.com"
+						"src": "http://news.sky.com"
 					}
 				},
 				{
 					"module": {
 						"type": "webview",
-						"src": "http://news.sky.com/"
+						"src": "http://www.rt.com/"
+					}
+				},
+				{
+					"module": {
+						"type": "webview",
+						"src": "http://www.bbc.co.uk/news"
+					}
+				},
+				{
+					"module": {
+						"type": "webview",
+						"src": "http://edition.cnn.com/"
 					}
 				}
 			]

@@ -5,7 +5,7 @@ import { JSONTransformer } from '../../../components';
 export default function Parsed() {
   const json = configParser();
   return (
-    <div>
+    <div className="signage-display">
       <JSONTransformer json={json} />
     </div>
   );
