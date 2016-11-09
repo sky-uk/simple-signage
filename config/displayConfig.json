@@ -1,0 +1,36 @@
+{
+	"name": "test-webview-grid",
+	"screen": [{
+		"module": {
+			"type": "webview-grid",
+			"rows": 2,
+			"cols": 2,
+			"modules": [
+				{
+					"module": {
+						"type": "webview",
+						"src": "http://www.sky.com"
+					}
+				},
+				{
+					"module": {
+						"type": "webview",
+						"src": "http://news.sky.com/"
+					}
+				},
+				{
+					"module": {
+						"type": "webview",
+						"src": "http://www.sky.com"
+					}
+				},
+				{
+					"module": {
+						"type": "webview",
+						"src": "http://news.sky.com/"
+					}
+				}
+			]
+		}
+	}]
+}

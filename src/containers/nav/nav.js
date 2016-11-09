@@ -7,7 +7,7 @@ import './nav.scss';
 
 const mapStateToProps = state => ({ title: state.get('title') });
 
-export let Nav = ({ title }) => (
+export let Nav = (/* { title  } */) => (
   <nav className="navbar navbar-full navbar-dark bg-inverse">
     <div className="nav navbar-nav">
       {routes.map(r => <Link className="nav-item nav-link" key={r.path} to={r.path}>{r.title}</Link>)}

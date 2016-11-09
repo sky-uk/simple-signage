@@ -10,7 +10,10 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({fullscreen: true})
+  /* Get the configurations from https://github.com/electron/electron/blob/master/docs/api/browser-window.md */
+  mainWindow = new BrowserWindow({
+    fullscreen: true
+  })
 
   // and load the index.html of the app.
   // mainWindow.loadURL(`file://${__dirname}/index.html`)

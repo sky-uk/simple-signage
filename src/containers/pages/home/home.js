@@ -4,10 +4,10 @@ import { WebviewGrid } from '../../../components';
 export default function Home() {
 
   const webviews = {};
-  webviews['0-0'] = 'http://www.sky.com';
+  webviews['0-0'] = 'http://news.sky.com';
   webviews['0-1'] = 'http://www.bbc.co.uk/news';
-  webviews['1-0'] = 'http://tv.sky.com/tv-guide/';
-  webviews['1-1'] = 'http://news.sky.com/';
+  webviews['1-0'] = 'https://www.rt.com/';
+  webviews['1-1'] = 'http://edition.cnn.com/';
 
   return (
     <div>

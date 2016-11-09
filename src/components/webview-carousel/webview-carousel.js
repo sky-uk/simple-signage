@@ -1,16 +1,15 @@
 import React, { PropTypes, Component } from 'react';
-import { Webview } from '../../components';
 
 import './webview-carousel.scss';
 
 export default class WebviewCarousel extends Component {
     static propTypes = {
-      webviews: PropTypes.object.isRequired,
+      webviews: PropTypes.array.isRequired,
       rotationTime: PropTypes.number
     };
 
     static defaultProps = {
-      webviews: {},
+      webviews: [],
       rotationTime: 10
     };
 
@@ -18,17 +17,25 @@ export default class WebviewCarousel extends Component {
       super(props);
 
       this.state = {
-        webviewLength: Object.keys(props.webviews).length,
+        webviewLength: props.webviews.length,
         position: 0
       }
+    }
+
+    componentWillMount = () => {
+      this.carouselTimeout = null;
     }
 
     componentDidMount = () => {
       this.startCarouselLoop();
     }
 
+    componentWillUnmount = () => {
+      clearTimeout(this.carouselTimeout);
+    }
+
     startCarouselLoop = () => {
-      setTimeout(() => {
+      this.carouselTimeout = setTimeout(() => {
         this.carouselLoopNext();
       }, this.props.rotationTime * 1000);
     }
@@ -45,23 +52,22 @@ export default class WebviewCarousel extends Component {
       this.startCarouselLoop();
     }
 
-    renderWebview = (url, index) => {
+    renderWebview = (webview, index) => {
       let classNameString = 'webview-carousel-item';
       if (index === this.state.position) {
         classNameString += ' webview-carousel-item-selected';
       }
 
       return (
-        <div className={classNameString} key={'webview-carousel-' + index} style={{zIndex: index}}>
-          <Webview src={url} />
+        <div className={classNameString} key={'webview-carousel-' + index}>
+          { webview }
         </div>
       );
     }
 
     renderWebviews = () => {
-      const webviewElements = Object.keys(this.props.webviews).map((key, index) => {
-        const webviewURL = this.props.webviews[key];
-        return this.renderWebview(webviewURL, index);
+      const webviewElements = this.props.webviews.map((webview, index) => {
+        return this.renderWebview(webview, index);
       });
 
       return webviewElements;

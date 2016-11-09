@@ -1,0 +1,61 @@
+
+/* Tests a single webview */
+{
+	"name": "test-webview",
+	"screen": [{
+		"module": {
+			"type": "webview",
+			"src": "http://www.sky.com"
+		}
+	}]
+}
+
+/* Tests a webview-carousel */
+{
+	"name": "test-webview-carousel",
+	"screen": [{
+		"module": {
+			"type": "webview-carousel",
+			"rotationTime": 5,
+			"modules": [
+				{
+					"module": {
+						"type": "webview",
+						"src": "http://www.sky.com"
+					}
+				},
+				{
+					"module": {
+						"type": "webview",
+						"src": "http://news.sky.com/"
+					}
+				}
+			]
+		}
+	}]
+}
+
+/* Tests a webview-grid */
+{
+	"name": "test-webview-grid",
+	"screen": [{
+		"module": {
+			"type": "webview-carousel",
+			"rotationTime": 5,
+			"modules": [
+				{
+					"module": {
+						"type": "webview",
+						"src": "http://www.sky.com"
+					}
+				},
+				{
+					"module": {
+						"type": "webview",
+						"src": "http://news.sky.com/"
+					}
+				}
+			]
+		}
+	}]
+}

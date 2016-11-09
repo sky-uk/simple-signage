@@ -11,8 +11,10 @@
     height: 100%;
     opacity: 0;
     transition: opacity 500ms;
+    z-index: 0;
 
     &.webview-carousel-item-selected {
+      z-index: 1;
       opacity: 1;
     }
 
