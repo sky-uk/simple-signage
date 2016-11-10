@@ -27,7 +27,7 @@ export default class Webview extends Component {
       const element = this.refs.webview;
 
       element.addEventListener('dom-ready', () => {
-        console.log('dom-ready for: ' + this.props.src);
+        // console.log('dom-ready for: ' + this.props.src);
       });
 
       element.addEventListener('did-finish-load', () => {

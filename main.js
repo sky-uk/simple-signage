@@ -18,10 +18,19 @@ function createWindow () {
   // and load the index.html of the app.
   // mainWindow.loadURL(`file://${__dirname}/index.html`)
   // mainWindow.loadURL(`file://${__dirname}/src/index.js`)
-  mainWindow.loadURL('http://localhost:4000')
+
+  // TODO: if dev:
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.loadURL('http://localhost:4000')
+  } else {
+    mainWindow.loadURL(`file://${__dirname}/build/index.html`)
+  }
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // TODO: if dev:
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.webContents.openDevTools()
+  }
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

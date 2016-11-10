@@ -8,7 +8,7 @@ import SliderMonitor from 'redux-slider-monitor';
 import createLogger from 'redux-logger';
 import { LOCATION_CHANGE, syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import { combineReducers } from 'redux-immutable';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createDevTools, persistState } from 'redux-devtools';
@@ -64,7 +64,7 @@ export default (options) => {
     )
   );
 
-  const history = syncHistoryWithStore(browserHistory, store, {
+  const history = syncHistoryWithStore(hashHistory, store, {
     selectLocationState: state => state.has('routing') ? state.get('routing').toJS() : null
   });
 
