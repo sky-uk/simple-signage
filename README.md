@@ -1,4 +1,4 @@
-# Native Signage Player
+# Simple Signage
 
 **An easy way to show multiple webpages in one application.**
 This application aims to be a simple way to rotate, divide and schedule monitoring websites.
