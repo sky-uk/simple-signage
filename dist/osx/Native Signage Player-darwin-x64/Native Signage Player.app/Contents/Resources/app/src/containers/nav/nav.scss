@@ -1,0 +1,18 @@
+
+.navbar {
+  font-size: 12px;
+  padding: 0px 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 10000;
+  background: #0072c9;
+
+  .nav-item {
+    color: #fff !important;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

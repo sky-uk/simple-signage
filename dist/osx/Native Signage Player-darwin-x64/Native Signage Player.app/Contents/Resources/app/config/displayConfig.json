@@ -1,0 +1,53 @@
+{
+	"name": "test-combo",
+	"screen": [{
+		"module": {
+			"type": "webview-grid",
+			"rows": 1,
+			"cols": 2,
+			"modules": [
+				{
+					"module": {
+						"type": "webview-grid",
+						"rows": 2,
+						"cols": 1,
+						"modules": [
+							{
+								"module": {
+									"type": "webview",
+									"src": "http://www.sky.com"
+								}
+							},
+							{
+								"module": {
+									"type": "webview",
+									"src": "http://news.sky.com/"
+								}
+							}
+						]
+					}
+				},
+				{
+					"module": {
+						"type": "webview-carousel",
+						"rotationTime": 7,
+						"modules": [
+							{
+								"module": {
+									"type": "webview",
+									"src": "http://www.sky.com"
+								}
+							},
+							{
+								"module": {
+									"type": "webview",
+									"src": "http://news.sky.com/"
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	}]
+}
