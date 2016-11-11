@@ -1,5 +1,5 @@
 {
-  "name": "native-signage-player",
+  "name": "simple-signage",
   "version": "0.0.1",
   "description": "An easy way to show multiple webpages in one application.",
   "main": "main.js",
@@ -15,24 +15,23 @@
     "clean:osx": "rm -rf ./dist/osx",
     "clean:win": "rm -rf ./dist/win",
 
-    "package:osx": "npm run clean:osx && electron-packager . \"Native Signage Player\" --out=dist/osx --platform=darwin --arch=x64 --version=1.3.4 --ignore=dist --ignore=README.md --ignore=.gitignore --ignore=eslintrc --ignore=plan.txt --ignore=renderer.js",
-    "package-osx": "./node_modules/.bin/electron-packager ./native-signage-player --all --out ~/Desktop/NativeSignagePlayer --version 0.0.1 --overwrite",
+    "package:osx": "npm run clean:osx && electron-packager . \"SimpleSignage\" --out=dist/osx --platform=darwin --arch=x64 --version=1.3.4 --ignore=dist --ignore=README.md --ignore=.gitignore --ignore=eslintrc --ignore=plan.txt --ignore=renderer.js",
     "package": "electron-packager . --all"
   },
   "config": {
     "entry": "src/index.js",
     "ghooks": {
-      "pre-commit": "npm test"
+      "pre-commit": ""
     },
     "html": {
-      "title": "Native Signage Player",
+      "title": "Simple Signage",
       "description": "An application to better display monitoring URL's",
       "author": "rickyH"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
+    "url": "git+https://github.com/sky-uk/simple-signage.git"
   },
   "keywords": [
     "Electron",
@@ -43,9 +42,9 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/electron/electron-quick-start/issues"
+    "url": "https://github.com/sky-uk/simple-signage/issues"
   },
-  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "homepage": "https://github.com/sky-uk/simple-signage#readme",
   "devDependencies": {
     "concurrently": "^3.1.0",
     "cross-env": "^3.1.3",
