@@ -22,7 +22,7 @@
   "config": {
     "entry": "src/index.js",
     "ghooks": {
-      "pre-commit": "npm test"
+      "pre-commit": ""
     },
     "html": {
       "title": "Native Signage Player",
