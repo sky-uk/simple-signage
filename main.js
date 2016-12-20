@@ -1,4 +1,8 @@
 const electron = require('electron')
+const { ipcMain } = require('electron')
+
+const storage = require('electron-json-storage');
+
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -39,6 +43,26 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  loadData();
+}
+
+function loadData (cb) {
+  storage.get('foobar', function(error, data) {
+    if (error) throw error;
+    if (cb) {
+      cb(data);
+    }
+  });
+}
+
+function setData (data, cb) {
+  storage.set('foobar', data, function(error) {
+    if (error) throw error;
+    if (cb) {
+      cb(true);
+    }
+  });
 }
 
 // This method will be called when Electron has finished
@@ -65,3 +89,15 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+ipcMain.on('asynchronous-message-save-config', (event, data) => {
+  setData(data, (returnValue) => {
+    returnValue && event.sender.send('asynchronous-reply-save-config', true)
+  });
+})
+
+ipcMain.on('asynchronous-message-load-config', (event, arg) => {
+  loadData((data) => {
+    event.sender.send('asynchronous-reply-load-config', data)
+  });
+})

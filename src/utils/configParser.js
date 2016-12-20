@@ -1,6 +1,6 @@
-
 /* Returns the JSON from the configuraiton */
 export default function configParser(/* filePath */) {
+
   // TODO: Check if the passed file exists first.
   let configJSON = null;
     try {

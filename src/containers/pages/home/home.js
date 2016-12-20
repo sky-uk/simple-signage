@@ -1,19 +1,36 @@
-import React from 'react';
-import { WebviewGrid, Webview } from '../../../components';
+import React, { PropTypes, Component } from 'react';
+import { ipcRenderer } from 'electron';
 
-export default function Home() {
-  const webviewElements = [];
+export default class Home extends Component {
+  static contextTypes = {
+   router: PropTypes.object.isRequired
+  }
 
-  webviewElements.push(<Webview src={'http://news.sky.com'} />);
-  webviewElements.push(<Webview src={'http://www.bbc.co.uk/news'} />);
-  webviewElements.push(<Webview src={'https://www.rt.com/'} />);
-  webviewElements.push(<Webview src={'http://edition.cnn.com/'} />);
+  componentWillMount() {
+    ipcRenderer.on('asynchronous-reply-load-config', (event, arg) => {
+      this.shouldRedirect(arg);
+    });
 
-  return (
-    <div className="signage-display">
-      <WebviewGrid rows={2} cols={2} webviews={webviewElements} />
-    </div>
-  );
+    ipcRenderer.send('asynchronous-message-load-config', {});
+  }
+
+  shouldRedirect = (json) => {
+    if (typeof json === 'object') {
+      if (json.name) {
+        this.context.router.push('/parsed');
+        return true;
+      }
+    }
+    this.context.router.push('/config');
+  }
+
+  render() {
+    return (
+      <div className="page-home">
+        Loading...
+      </div>
+    );
+  }
 }
 
 Home.displayName = 'Home';
