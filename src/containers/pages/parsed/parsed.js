@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-// import configParser from '../../../utils/configParser.js'; // TODO: remove this now redundent utility.
 import { JSONTransformer } from '../../../components';
 
 const mapStateToProps = state => ({

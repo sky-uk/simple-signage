@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { ipcRenderer } from 'electron';
 import { setConfig } from 'actions/actions';
+import './config.scss';
 
 const mapStateToProps = state => ({
   config: state.get('config')
@@ -16,6 +17,10 @@ class Config extends Component {
     setConfig: PropTypes.func.isRequired
   }
 
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  }
+
   constructor(props) {
    super(props);
    this.state = {config: props.config || ''};
@@ -27,6 +32,24 @@ class Config extends Component {
         this.props.setConfig(this.state.config);
       }
     });
+
+    const json = this.parseConfig();
+    // This happens if the user restarts the app whilst on this page and the app
+    // hasn't loaded any config yet.
+    if (json.restart) {
+      this.context.router.push('/');
+    }
+  }
+
+  parseConfig = () => {
+    let json = {};
+    try {
+      json = JSON.parse(this.props.config)
+    } catch (e) {
+      console.error('Error parsing JSON.');
+    }
+
+    return json;
   }
 
   textareaKeyDown = (event) => {
