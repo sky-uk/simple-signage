@@ -96,7 +96,7 @@ ipcMain.on('asynchronous-message-save-config', (event, data) => {
   });
 })
 
-ipcMain.on('asynchronous-message-load-config', (event, arg) => {
+ipcMain.on('asynchronous-message-load-config', (event) => {
   loadData((data) => {
     event.sender.send('asynchronous-reply-load-config', data)
   });

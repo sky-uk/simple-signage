@@ -22,10 +22,8 @@ class Config extends Component {
   }
 
   componentWillMount = () => {
-    console.log('config:', this.props.config);
     ipcRenderer.on('asynchronous-reply-save-config', (event, arg) => {
       if (arg === true) {
-        console.log('f1: ', typeof this.state.config);
         this.props.setConfig(this.state.config);
       }
     });

@@ -1,5 +1,5 @@
 {
-    "extends": [
-        "./node_modules/mozilla-neo/config/eslint.dev.js"
-    ]
+  "extends": [
+    "./node_modules/mozilla-neo/config/eslint.dev.js"
+  ]
 }

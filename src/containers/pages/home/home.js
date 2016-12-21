@@ -1,7 +1,16 @@
 import React, { PropTypes, Component } from 'react';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux';
 import { ipcRenderer } from 'electron';
+import { setConfig } from 'actions/actions';
 
-export default class Home extends Component {
+const mapDispatchToProps = (dispatch) => {return bindActionCreators({ setConfig }, dispatch)}
+
+class Home extends Component {
+  static propTypes = {
+    setConfig: PropTypes.func.isRequired
+  }
+
   static contextTypes = {
    router: PropTypes.object.isRequired
   }
@@ -17,6 +26,7 @@ export default class Home extends Component {
   shouldRedirect = (json) => {
     if (typeof json === 'object') {
       if (json.name) {
+        this.props.setConfig(JSON.stringify(json));
         this.context.router.push('/parsed');
         return true;
       }
@@ -34,3 +44,4 @@ export default class Home extends Component {
 }
 
 Home.displayName = 'Home';
+export default connect(null, mapDispatchToProps)(Home);
