@@ -1,6 +1,3 @@
-// import Home from './home';
-// import About from './about';
-// import GridView from './grid-view'
 import { Home, Parsed, Config } from './containers';
 
 export default [
